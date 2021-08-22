@@ -2,34 +2,35 @@
 #include <conio.h>
 #include <windows.h>
 using namespace std;
-string crackPassword(string pass);
 long long int attempt;
 clock_t start_t, end_t;
 void xoh(string &h);
 void exo2();
-string xo(string &u);
-string exo();
-string e1(string &n);
-string v1e(string &r);
 void e3();
 void reh();
+void passcheckhelp();
+void table(string &l); /// might get an upgrade of usage
+void login(string username , string password);
+void admin(); ///super op!!!!
+void changepass(string &ouser);
+void internet(string &name); /// connects and scans for internets
+void specs();
+void dhashm();///to accesss use 'hashm --virus --darkhashm'
 int deve();
 int encrypt();
 int devd();
 int decypher();
+string crackPassword(string pass);
+string xo(string &u);
+string exo();
+string e1(string &n);
+string v1e(string &r);
 string v1();
 string hashm();
 string passwordcheck1();
 string crackPassword(string pass);
 string register1(string &username , string &password , string &passwordreapeat);
-void passcheckhelp();
-void table(string &l); // might get an upgrade of usage
-void login(string username , string password);
-void admin();
-void changepass(string &ouser);
-void internet(string &name); // connects and scans for internets
-void specs();
-//driver code
+///driver code
 int main()
 {
     string a;
@@ -41,7 +42,7 @@ int main()
     else
         e1(a);
 }
-//central director
+///central director
 string hashm()
 {
 
@@ -50,7 +51,7 @@ string hashm()
     if(a[0]=="--help")
     {
         cout<<"only use this for legal purposes , author r.n"<<endl;
-        cout<<"To login use: '--login' \nregister use '--register'"<<endl<<"to hash :"<<endl<<"for md5 hashing use '--md5'"<<endl<<"to hash sha1 use '--sha1'"<<"\nto encrypt with ryan encrypt use '--re'"<<endl<<"to play X,O use '--xo'"<<endl<<"use '--info' for information abouth this progaram"<<endl<<"use '--passcheck' to check for the sterngth of your password"<<endl;
+        cout<<"To login use: '--login' \nregister use '--register'\n"<<"Use '--passcheck' to check for the sterngth of your password"<<endl<<"Use '--ping' to ping a website"<<"\nuse '--ip' to get the ip and ping a website"<<endl<<"to hash :"<<endl<<"for md5 hashing use '--md5'"<<endl<<"To hash sha1 use '--sha1'"<<"\nTo encrypt with ryan encrypt use '--re'"<<endl<<"To clear the screen use '--clear'\nto play X,O use '--xo'"<<endl<<"use '--info' for information abouth this progaram"<<endl;
         exit(1);
     }
     else if(a[0]=="--login")
@@ -74,6 +75,22 @@ string hashm()
         {
             xo(a[1]);
         }
+    }
+        else if(a[0]=="--ping")
+    {
+        string ping;
+        cin>>ping;
+        system(("ping "+ping).c_str());
+    }
+        else if(a[0]=="--ip")
+    {
+        string ip;
+        cout<<"Enter your websites domain , note:"<<endl;
+        cout<<"Do not include https:// or http:// and only use the raw domain not additional things like:\nexample.com/lol https://example.com http://example.com https://example.com/l\nor other types..."<<endl;
+        cout<<"The first line is your ip address"<<endl;
+        cin>>ip;
+        system(("nslookup "+ip).c_str());
+        exit(1);
     }
     else if(a[0]=="--virus")
     {
@@ -157,12 +174,18 @@ string hashm()
             e1(w);
         }
     }
+            else if(a[0]=="--clear")
+        {
+            system("cls");
+            cout<<"Screen cleared , back to central director"<<endl;
+            hashm();
+        }
     else
     {
         e1(a[0]);
     }
 }
-// xo function
+/// xo function
 string xo(string &u)
 {
     int y;
@@ -206,49 +229,49 @@ string xo(string &u)
         cout<<"--------"<<endl;
     cout<<b[m+6]<<" "<<"|"<<b[m+7]<<" "<<"|"<<b[m+8]<<endl;
 if(b[m]!=' '&& b[m+1]!=' '&& b[m+2]!=' ')
-    if (b[m]==b[m+1] && b[m+2]==b[m] )//++
+    if (b[m]==b[m+1] && b[m+2]==b[m] )///++
     {
         cout<<b[m]<<"  Wins  "<<endl;
                 break;
     }
    if(b[m]!=' '&& b[m+4]!=' '&& b[m+8]!=' ')
-       if(b[m]==b[m+4] && b[m+8]==b[m])//++
+       if(b[m]==b[m+4] && b[m+8]==b[m])///++
      {
             cout<<b[m]<<"  Wins  "<<endl;
                 break;
      }
      if(b[m+3]!=' '&& b[m+5]!=' '&& b[m+4]!=' ')
-       if(b[m+4]==b[m+3] && b[m+5]==b[m+4])//++
+       if(b[m+4]==b[m+3] && b[m+5]==b[m+4])///++
      {
           cout<<b[m+4]<<"  Wins  "<<endl;
                 break;
      }
      if(b[m+1]!=' '&& b[m+4]!=' '&& b[m+7]!=' ')
-       if(b[m+1]==b[m+4] && b[m+1]==b[m+7])//++
+       if(b[m+1]==b[m+4] && b[m+1]==b[m+7])///++
      {
           cout<<b[m+1]<<"  Wins  "<<endl;
                 break;
      }
      if(b[m]!=' '&& b[m+3]!=' '&& b[m+6]!=' ')
-       if(b[m]==b[m+3] && b[m]==b[m+6])//++
+       if(b[m]==b[m+3] && b[m]==b[m+6])///++
      {
           cout<<b[m]<<"  Wins  "<<endl;
                 break;
      }
      if(b[m+5]!=' '&& b[m+8]!=' '&& b[m+2]!=' ')
-       if(b[m+2] == b[m+5] && b[m+2]==b[m+8])//++
+       if(b[m+2] == b[m+5] && b[m+2]==b[m+8])///++
      {
           cout<<b[m+2]<<"  Wins  "<<endl;
                 break;
      }
      if(b[m+5]!=' '&& b[m+3]!=' '&& b[m+4]!=' ')
-       if(b[m+5]==b[m+3] && b[m+4]==b[m+3])//++
+       if(b[m+5]==b[m+3] && b[m+4]==b[m+3])///++
      {
           cout<<b[m+3]<<"  Wins  "<<endl;
                 break;
      }
      if(b[m+6]!=' '&& b[m+7]!=' '&& b[m+8]!=' ')
-    if(b[m+6]==b[m+7] && b[m+6]==b[m+8])//++
+    if(b[m+6]==b[m+7] && b[m+6]==b[m+8])///++
      {
           cout<<b[m+6]<<"  Wins  "<<endl;
                 break;
@@ -263,7 +286,7 @@ if(b[m]!=' '&& b[m+1]!=' '&& b[m+2]!=' ')
 y--;
 }
 }
-//virus
+///virus
 string v1()
 {
     string a[100000];
@@ -287,6 +310,10 @@ string v1()
             v1e(h);
         }
     }
+    else if(a[0]=="--darkhashm")
+    {
+        dhashm();
+    }
     else if(a[0]=="--back")
     {
         cout<<"redirecting you to central director , from there you can use '--help' to  get help"<<endl;
@@ -297,7 +324,7 @@ string v1()
         v1e(a[0]);
     }
 }
-//xo
+///xo
 void xoh(string &h)
 {
     if(h=="--help")
@@ -316,13 +343,13 @@ string exo()
     cout<<"no such command or batch file , use 'hashm --xo --help' maybe that can help you";
     exit(1);
 }
-//error center
+///error center
 string e1(string &n)
 {
     cout<<"No such command , for help use: 'hashm --help'"<<endl;
     exit(1);
 }
-//erorr virus
+///erorr virus
 string v1e(string &r)
 {
     cout<<"No such command or batch file try '--help'"<<endl<<"Error 0*1 '"<<r<<"' not available";
@@ -391,14 +418,14 @@ void e3()
     cout<<"No such command , use 'hashm --re --help' for help";
     exit(1);
 }
-// ryan encrypt
-//help
+/// ryan encrypt
+///help
 void reh()
 {
     cout<<"use 'hashm --re'"<<endl<<"to encrypt: '--e'"<<endl<<"to decrypt '--d' and to get back to this page use '--help'";
     exit(1);
 }
-//encrypt dev
+///encrypt dev
 int deve()
 {
     cout<<"To decript a number of strings enter the amount and then the strings you want to be encrypted:"<<endl;
@@ -422,23 +449,23 @@ int deve()
     {
      if(a[e][m]=='1')
      cout<<"$566690Q";
-        else if(a[e][m]=='0')//+
+        else if(a[e][m]=='0')///+
         cout<<"Ty67%$we";
-        else if(a[e][m]=='2')//+
+        else if(a[e][m]=='2')///+
         cout<<"wery@#4a";
-        else if(a[e][m]=='3')//+
+        else if(a[e][m]=='3')///+
         cout<<"@#%^&pp6";
-        else if(a[e][m]=='4')//+
+        else if(a[e][m]=='4')///+
         cout<<"pIod#fr6";
-        else if(a[e][m]=='5')//+
+        else if(a[e][m]=='5')///+
         cout<<"Qwe4$$&=";
-        else if(a[e][m]=='6')//+
+        else if(a[e][m]=='6')///+
         cout<<"$$@WERT=";
-        else if(a[e][m]=='7')//+
+        else if(a[e][m]=='7')///+
         cout<<"pl))(OT]";
-        else if(a[e][m]=='8')//+
+        else if(a[e][m]=='8')///+
         cout<<"jj!**er[";
-        else if(a[e][m]=='9')//+
+        else if(a[e][m]=='9')///+
         cout<<"r:&&768p";
     y--;
     m++;
@@ -448,7 +475,7 @@ int deve()
     }
     exit(1);
 }
-//encrypt
+///encrypt
 int encrypt()
 {
     int n=1;
@@ -470,23 +497,23 @@ int encrypt()
     {
      if(a[0][m]=='1')
      cout<<"$566690Q";
-        else if(a[0][m]=='0')//+
+        else if(a[0][m]=='0')///+
         cout<<"Ty67%$we";
-        else if(a[0][m]=='2')//+
+        else if(a[0][m]=='2')///+
         cout<<"wery@#4a";
-        else if(a[0][m]=='3')//+
+        else if(a[0][m]=='3')///+
         cout<<"@#%^&pp6";
-        else if(a[0][m]=='4')//+
+        else if(a[0][m]=='4')///+
         cout<<"pIod#fr6";
-        else if(a[0][m]=='5')//+
+        else if(a[0][m]=='5')///+
         cout<<"Qwe4$$&=";
-        else if(a[0][m]=='6')//+
+        else if(a[0][m]=='6')///+
         cout<<"$$@WERT=";
-        else if(a[0][m]=='7')//+
+        else if(a[0][m]=='7')///+
         cout<<"pl))(OT]";
-        else if(a[0][m]=='8')//+
+        else if(a[0][m]=='8')///+
         cout<<"jj!**er[";
-        else if(a[0][m]=='9')//+
+        else if(a[0][m]=='9')///+
         cout<<"r:&&768p";
     y--;
     m++;
@@ -494,7 +521,7 @@ int encrypt()
     }
     exit(1);
 }
-//decrypt dev
+///decrypt dev
 int devd()
 {
     cout<<"To decript a number of strings enter the amount and then the strings you want to be decrypted:"<<endl;
@@ -563,7 +590,7 @@ int devd()
         }
         exit(1);
 }
-//passcheck
+///passcheck
 string passwordcheck1()
 {
       string password;
@@ -587,7 +614,7 @@ string passwordcheck1()
         e1(h);
     }
 }
-//passcheck 2
+///passcheck 2
 string crackPassword(string pass)
 {
      int digit[7],alphabetSet=1,passwordLength=1;
@@ -892,14 +919,14 @@ void passcheckhelp()
     cout<<"try a new password with a lower length"<<endl;
     exit(1);
 }
-//login
+///login
 void login(string username , string password)
 {
     int i=0;
     string search=password,lol=username;
     ifstream file("Password.txt");
     string str;
-    //scans file for pass and username
+    ///scans file for pass and username
     while (getline(file, str))
     {
        if(str==search)
@@ -926,7 +953,7 @@ void login(string username , string password)
     exit(1);
 }
 }
-//store login data
+///store login data
 string register1(string &username , string &password , string &passwordreapeat)
 {
     if(password==passwordreapeat)
@@ -945,7 +972,7 @@ string register1(string &username , string &password , string &passwordreapeat)
         exit(1);
     }
 }
-//login data base
+///login data base
 void table(string &l)
 {
     cout<<"You are now logged in as "<<l<<endl<<"To get help use '--help' , else enter the desired command"<<endl;
@@ -961,18 +988,25 @@ void table(string &l)
         internet(l);
         else if(j=="--specs")
             specs();
+            else if(j=="--clear")
+            {
+                system("cls");
+                cout<<"Screen cleared"<<endl;
+                table(l);
+            }
     else if(j=="--help")
         {
-             cout<<"if you want to change password use '--changepass' ,\n use '--internet' to connect and scan for wifis around you ,\n use '--specs' for your computer info ,\n to go to the main page (central director) use '--main' and use 'exit' to exit"<<endl;
+             cout<<"if you want to change password use '--changepass',\nuse '--clear' to clear the screen ,\n use '--internet' to connect and scan for wifis around you ,\n use '--specs' for your computer info ,\n to go to the main page (central director) use '--main' and use 'exit' to exit"<<endl;
              exit(1);
         }
     else
         e1(j);
 }
-//admin login
+///admin login
 void admin()
 {
     cout<<"You are now logged in as admin , use your powers wisely"<<endl;
+    cout<<"To clear the screen use '--clear'"<<endl;
     cout<<"To exit use 'exit' , to go back to central director use '--direct'"<<endl;
     cout<<"To delete all login data use '--delete'"<<endl;
     cout<<"To connect and scan for networks (optimised to use this when logged in as normal user) use '--internet'"<<endl;
@@ -984,6 +1018,12 @@ void admin()
         exit(1);
     else if(h=="--direct")
         hashm();
+        else if(h=="--clear")
+        {
+            system("cls");
+            cout<<"Screen cleared"<<endl;
+            admin();
+        }
         else if(h=="--delete")
         {
                 ofstream file ("Password.txt");
@@ -1019,11 +1059,20 @@ void admin()
 
         cout<<uu<<endl;
     }
+    cout<<"\n\n\nTo exit use 'exit'  \nTo use the admin table again use '--admin'"<<endl;
+    string o;
+    cin>>o;
+    if(o=="exit")
+        exit(1);
+    else if(o=="--admin")
+        admin();
+    else
+        e1(o);
             }
     else
         e1(h);
 }
-//change password
+///change password
 void changepass(string &ouser)
 {
     cout<<"To change your passcode enter your username and then new your new password and the reapeat of your new password"<<endl;
@@ -1051,7 +1100,7 @@ void changepass(string &ouser)
         exit(1);
     }
 }
-// connects and scans for internets
+/// connects and scans for internets
 void internet(string &user)
 {
     ofstream xmlFile;
@@ -1079,10 +1128,10 @@ do
     cin>>pass;
     xmlFile.open(fileName.c_str());
 
-    //Writing a xml file .....................
+    ///Writing a xml file .....................
 
     xmlFile<<"<?xml version="<<c<<"1.0"<<c<<"?>\n";
-    xmlFile<<"<WLANProfile xmlns="<<c<<"http://www.microsoft.com/networking/WLAN/profile/v1"<<c<<">\n";
+    xmlFile<<"<WLANProfile xmlns="<<c<<"http:///www.microsoft.com/networking/WLAN/profile/v1"<<c<<">\n";
     xmlFile<<"<name>";
     xmlFile<<name;
     xmlFile<<"</name>\n<SSIDConfig>\n<SSID>\n<hex>";
@@ -1095,15 +1144,15 @@ do
     xmlFile<<"\n<keyType>passPhrase</keyType>\n<protected>false</protected>\n<keyMaterial>";
     xmlFile<<pass;
     xmlFile<<"</keyMaterial>\n</sharedKey>\n</security>\n</MSM>\n";
-    xmlFile<<"<MacRandomization xmlns="<<c<<"http://www.microsoft.com/networking/WLAN/profile/v3"<<c<<">\n";
+    xmlFile<<"<MacRandomization xmlns="<<c<<"http:///www.microsoft.com/networking/WLAN/profile/v3"<<c<<">\n";
     xmlFile<<"<enableRandomization>false</enableRandomization>\n</MacRandomization>\n</WLANProfile>";
     xmlFile.close();
 
-    //addd the xml file to system profile.............
+    ///add the xml file to system profile.............
     system(("netsh wlan add profile filename="+xfileName).c_str());
-    //to let system realize what changes have been made...............
+    ///to let system realize what changes have been made...............
     system("timeout /t 2");
-    //to check if connected...........
+    ///to check if connected...........
     system(("netsh interface show interface name="+netType).c_str());
 
     xmlFile1.open("test.txt");
@@ -1124,9 +1173,6 @@ do
                   succ=1;break;
               }
               if(check!="Connected")check="";
-
-
-
     }
     xmlFile1.close();
     if(succ==1)break;
@@ -1143,16 +1189,16 @@ else if(r=="--internet")
 else
     e1(r);
 }
-//computer specs
+///computer specs
 void specs()
 {
        SYSTEM_INFO siSysInfo;
 
-   // Copy the hardware information to the SYSTEM_INFO structure.
+   /// Copy the hardware information to the SYSTEM_INFO structure.
 
    GetSystemInfo(&siSysInfo);
 
-   // Display the contents of the SYSTEM_INFO structure.
+   /// Display the contents of the SYSTEM_INFO structure.
 
    printf("Hardware information: \n");
    printf("  OEM ID: %u\n", siSysInfo.dwOemId);
@@ -1166,9 +1212,30 @@ void specs()
       siSysInfo.lpMaximumApplicationAddress);
    printf("  Active processor mask: %u\n",
       siSysInfo.dwActiveProcessorMask);
-//source:
-// msdn.microsoft.com/en-us/library/windows/desktop/ms724423(v=vs.85).aspx
-//msdn.microsoft.com/en-us/library/windows/desktop/ms724381(v=vs.85).aspx
-//www.cplusplus.com/forum/windows/124624/
+///source:
+/// msdn.microsoft.com/en-us/library/windows/desktop/ms724423(v=vs.85).aspx
+///msdn.microsoft.com/en-us/library/windows/desktop/ms724381(v=vs.85).aspx
+///www.cplusplus.com/forum/windows/124624/
 exit(1);
+}
+void dhashm()
+{
+    cout<<"Welcome to darkhashm"<<endl;
+    cout<<"Only use for legal peposuses"<<endl;
+    string a[1000];
+    cin>>a[0];
+    if(a[0]=="--help")
+    {
+          cout<<"Only use for legal peposuses"<<endl;
+    cout<<"To shutdown your own computer use '--shutdown'\nTo get ip of a site use '--ip' and then enter your site"<<endl<<"Note you should turn off antivirus + windows defender"<<endl;
+    }
+    else if(a[0]=="--shutdown")
+    {
+        system("shutdown /s");
+    }
+    else
+    {
+        cout<<"No such command use '--help' for help"<<endl;
+        exit(1);
+    }
 }
