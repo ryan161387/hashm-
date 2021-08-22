@@ -1,0 +1,2 @@
+# hashm-
+use hashm --help
